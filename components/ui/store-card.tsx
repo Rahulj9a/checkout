@@ -28,11 +28,13 @@ const StoreCard: React.FC<StoreCardprops> = ({ data }) => {
       <div className="flex flex-col items-center ">
         <p className="font-semibold text-lg">{data.name}</p>
         <div className="flex  text-center justify-center ">
-          {data.category.slice(0, 5).map((item) => (
+          {data.category.length>0?data.category?.slice(0, 5).map((item) => (
             <span key={item.id} className="text-xs mx-1">
               {item.name}
             </span>
-          ))}
+          )):<span className="text-xs mx-1">
+           No Category
+        </span>}
           <span className="text-xs"> ... </span>
         </div>
       </div>

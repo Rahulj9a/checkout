@@ -10,12 +10,13 @@ const Homepage = async() => {
 
   const products = await getProducts({ isFeatured: true })
   const stores = await getStores()
-console.log(stores)
+ 
+  console.log(stores)
   return (
     <Container>
       <div className="flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
         <ProductList title="Featured Products" items={products} />
-        <StoreList title="Featured Stores" items={stores} />
+        <StoreList title="New Featured Stores" items={stores} />
       </div>
     </Container>
   );
