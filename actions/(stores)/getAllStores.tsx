@@ -9,8 +9,8 @@ const getStores = async():Promise<Store[]> =>{
     
      
 
-    const res = await fetch(URL)
-     
+    const res = await fetch(URL, { next: { revalidate: 7000 } })
+    
     return res.json()
 }
 

@@ -23,7 +23,7 @@ const getProducts = async (query: Query):Promise<Product[]> =>{
         },
     })
 
-    const res = await fetch(url)
+    const res = await fetch(url, { next: { revalidate: 5000 }})
     return res.json()
 }
 
