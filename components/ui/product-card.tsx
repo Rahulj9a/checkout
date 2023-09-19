@@ -1,16 +1,38 @@
+"use client"
+
 import { Product } from "@/types"
 import Image from "next/image"
-
+import { useRouter } from "next/navigation"
+import Currency from "./currency"
+import {MouseEventHandler} from 'react'
+import {BiExpand} from "react-icons/bi"
+import IconButton from "./icon_button"
+import usePreviewModal from "@/hooks/usePreviewModal"
+import { AiOutlineShoppingCart } from "react-icons/ai"
 interface ProductCardprops{
     data:Product
 }
 
 const ProductCard:React.FC<ProductCardprops> = ({data}) =>{
 
+  const router = useRouter()
+  const previewModal = usePreviewModal()
+  const productId = data.id
+  const handleClick =()=>{
+    router.push(`/product/${productId}`)
+  }
+
+  const onPreview:MouseEventHandler<HTMLButtonElement> = (event)=>{
+event.stopPropagation();
+ previewModal.onOpen(data)
+  }
+  const onAddToCart = ()=>{
+    console.log('added')
+  }
   
     return(
          
-        <div /* onClick={handleClick} */ className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
         {/* Image & actions */}
         <div className="aspect-square rounded-xl bg-gray-100 relative">
           <Image 
@@ -21,13 +43,13 @@ const ProductCard:React.FC<ProductCardprops> = ({data}) =>{
           />
           <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
             <div className="flex gap-x-6 justify-center">
-              <button 
-               /*  onClick={onPreview} 
-                icon={<Expand size={20} className="text-gray-600" />} */
+              <IconButton 
+                onClick={onPreview} 
+                icon={<BiExpand size={20} className="text-gray-600" />}
               />
-              <button
-                /* onClick={onAddToCart} 
-                icon={<ShoppingCart size={20} className="text-gray-600" />}  */
+              <IconButton
+                onClick={onAddToCart} 
+                icon={<AiOutlineShoppingCart size={20} className="text-gray-600" />} 
               />
             </div>
           </div>
@@ -39,7 +61,7 @@ const ProductCard:React.FC<ProductCardprops> = ({data}) =>{
         </div>
         {/* Price & Reiew */}
         <div className="flex items-center justify-between">
-          {/* <Currency value={data?.price} /> */}
+          <Currency value={data?.price} />
         </div>
       </div>
     )
