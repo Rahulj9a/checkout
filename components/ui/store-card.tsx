@@ -1,4 +1,5 @@
 import { Store } from "@/types";
+ 
 
 interface StoreCardprops {
   data: Store;
@@ -38,10 +39,8 @@ const StoreCard: React.FC<StoreCardprops> = ({ data }) => {
           <span className="text-xs"> ... </span>
         </div>
       </div>
-      {/* Price & Reiew */}
-      <div className="flex items-center justify-between">
-        {/* <Currency value={data?.price} /> */}
-      </div>
+       
+       
     </div>
   );
 };
