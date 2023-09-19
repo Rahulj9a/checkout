@@ -1,9 +1,10 @@
 import { Product } from "@/types";
 
-const URL = `${process.env.NEXT_NEXT_PUBLIC_API_URL}/products`
+const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`
 
-const getProduct = async(id:String):Promise<Product[]>=>{
-    const res = await fetch(`${URL}/${id}`);
+const getProduct = async(productId:String):Promise<Product>=>{
+     
+    const res = await fetch(`${URL}/${productId}`);
 
     return res.json()
 }

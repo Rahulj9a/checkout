@@ -20,8 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <Navbar/>
+        <div className='mt-16'>
         {children}
-        <Footer/>
+        </div>
+        <Footer />
         </body>
     </html>
   )
