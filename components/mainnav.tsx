@@ -1,7 +1,7 @@
 "use client"
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
-import {useParams, usePathname} from 'next/navigation'
+import { usePathname} from 'next/navigation'
 
 const MainNav = () => {
     const [isMounted, setIsMounted] = useState(false)
@@ -12,7 +12,7 @@ const MainNav = () => {
 
     
     const pathname = usePathname()
-    const params = useParams
+     
 
     const routes = [
         {
