@@ -5,13 +5,14 @@ import { usePathname} from 'next/navigation'
 
 const MainNav = () => {
     const [isMounted, setIsMounted] = useState(false)
+    const pathname = usePathname()
     useEffect(()=>{setIsMounted(true)},[])
     if(!isMounted){
         return null
     }
 
     
-    const pathname = usePathname()
+    
      
 
     const routes = [
@@ -31,7 +32,7 @@ const MainNav = () => {
     return (
         <div className='flex gap-x-4 mx-4 items-center'>
             {routes.map((route)=>{
-                return <Link href={route.href} className={`${route.active?"font-bold":"font-light"}`}>{route.label}</Link>
+                return <Link key={route.href} href={route.href} className={`${route.active?"font-bold":"font-light"}`}>{route.label}</Link>
             })}
         </div>
     )
