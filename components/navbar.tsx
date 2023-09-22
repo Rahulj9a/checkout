@@ -3,7 +3,11 @@ import Container from "./ui/container"
 import MainNav from "./mainnav"
 import NavActions from "./nav_actions"
 
-const Navbar = () => {
+interface NavbarProps{
+    routeNav?: React.ReactNode
+}
+
+const Navbar:React.FC<NavbarProps> = ({routeNav}) => {
 
     
     return (
@@ -15,7 +19,7 @@ const Navbar = () => {
                             CHECKOUT
                         </Link>
                         <div className="flex justify-center ">
-                            <MainNav />
+                            {routeNav}
                         </div>
 
                         <NavActions />

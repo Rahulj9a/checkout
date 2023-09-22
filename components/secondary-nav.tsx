@@ -13,7 +13,7 @@ const SecondaryNav: React.FC<SecondaryNavProps> = ({ title, categories }) => {
 
 
     return (
-        <nav className="fixed">
+        <nav className="relative lg:block hidden">
 
 
             <div className="fixed border-r-2 m-auto left-0 py-4 h-screen flex flex-col gap-3 justify-start w-48 items-center ">

@@ -9,6 +9,7 @@ import { BiExpand } from "react-icons/bi"
 import IconButton from "./icon_button"
 import usePreviewModal from "@/hooks/usePreviewModal"
 import { AiOutlineShoppingCart } from "react-icons/ai"
+import useCart from "@/hooks/useCart"
 interface ProductCardprops {
   data: Product
 }
@@ -17,6 +18,7 @@ const ProductCard: React.FC<ProductCardprops> = ({ data }) => {
 
   const router = useRouter()
   const previewModal = usePreviewModal()
+  const cart = useCart()
   const productId = data.id
   const handleClick = () => {
     router.push(`/product/${productId}`)
@@ -27,12 +29,12 @@ const ProductCard: React.FC<ProductCardprops> = ({ data }) => {
     previewModal.onOpen(data)
   }
   const onAddToCart = () => {
-    console.log('added')
+    cart.addItem(data)
   }
 
   return (
 
-    <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4">
+    <div onClick={handleClick} className="bg-white group sm:flex-col justify-between flex cursor-pointer rounded-xl border p-3 space-y-4">
       {/* Image & actions */}
       <div className="aspect-square rounded-xl bg-gray-100 relative">
         <Image
@@ -41,7 +43,7 @@ const ProductCard: React.FC<ProductCardprops> = ({ data }) => {
           fill
           className="aspect-square object-cover rounded-md"
         />
-        <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
+        <div className="opacity-0 sm:group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
           <div className="flex gap-x-6 justify-center">
             <IconButton
               onClick={onPreview}

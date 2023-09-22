@@ -5,4 +5,5 @@ const StoresPage = ()=>{
         </div>
     )
 }
+
 export default StoresPage
