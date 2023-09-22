@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react'
 import Link from 'next/link'
 import { usePathname} from 'next/navigation'
 
-const MainNav = () => {
+const RouteNav = () => {
     const [isMounted, setIsMounted] = useState(false)
     const pathname = usePathname()
     useEffect(()=>{setIsMounted(true)},[])
@@ -17,15 +17,11 @@ const MainNav = () => {
 
     const routes = [
         {
-            label:"Store Home",
+            label:"THE STORE",
             href:'/',
             active: pathname === "/"
         },
-        {
-            label:"Stores",
-            href:'/stores',
-            active: pathname === `/stores`
-        },
+         
         
     ]
 
@@ -38,4 +34,4 @@ const MainNav = () => {
     )
 }
 
-export default MainNav
+export default RouteNav

@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import RouteNav from "./components/routeNav";
 
 export default function Layout({
     children,
@@ -6,7 +7,7 @@ export default function Layout({
     children: React.ReactNode;
 }) {
     return <>
-        <Navbar />
+        <Navbar routeNav={<RouteNav/>}/>
         <div className="pt-16">
             {children}
         </div></>;

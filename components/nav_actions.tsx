@@ -5,11 +5,18 @@ import { AiOutlineShoppingCart } from 'react-icons/ai'
 import IconButton from './ui/icon_button'
 import { useRouter } from 'next/navigation'
 import useCart from '@/hooks/useCart'
+import { useEffect, useState } from 'react'
  
 
 const NavActions = () => {
     const router = useRouter()
     const cart = useCart()
+    const [isMounted, setIsMounted] = useState(false)
+    
+    useEffect(()=>{setIsMounted(true)},[])
+    if(!isMounted){
+        return null
+    }
     const cartIcon = (
         <div className='relative'>
 

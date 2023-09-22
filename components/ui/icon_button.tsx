@@ -11,6 +11,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   icon,
   className,
 }) => {
+ 
   return (
     <button
       onClick={onClick}

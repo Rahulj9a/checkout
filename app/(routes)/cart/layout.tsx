@@ -1,4 +1,4 @@
-import MainNav from "@/components/mainnav";
+ 
 import Navbar from "@/components/navbar";
 
 export default function Layout({
