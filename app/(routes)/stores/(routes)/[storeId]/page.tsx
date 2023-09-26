@@ -42,7 +42,7 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
 
                         <div>
                             <CategoryList title="Categories" items={categories} />
-                       
+                             
                         </div>
                         <div>
 

@@ -1,13 +1,14 @@
-import {  Category } from "@/types";
+import { Category } from "@/types";
 
 interface CategoryCardProps {
-    data:Category;
+    data: Category;
     productCount?: number | string;
+    board?: boolean
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({
     data,
- 
+    board,
     productCount,
 }) => {
     return (
@@ -18,25 +19,25 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
             >
                 <div className="absolute left-3 top-3">
                     <div className="px-1 py-1 bg-gray-500 bg-opacity-50 rounded-lg">
-                        <p className="text-lg font-semibold">{data.billboard.label}</p>
+                        <p className="text-base font-semibold">{data.billboard.label}</p>
                     </div>
 
                 </div>
 
                 <div className="h-full w-full flex flex-col justify-center items-center text-center gap-y-8">
                     <div className="px-2 py-2 bg-gray-500 bg-opacity-50 rounded-lg">
-                        <p className="font-semibold text-2xl sm:text-4xl lg:text-5xl sm:max-w-xl max-w-xs">
+                        <p className={` ${board ? "text-xl sm:text-2xl  md:text-3xl lg:text-5xl font-bold" : "font-semibold text-lg sm:text-xl md:text-2xl lg:text-3xl"}  sm:max-w-xl max-w-xs`}>
                             {data.name}
                         </p>
                     </div>
                 </div>
-               {/*  <div className="absolute right-5  bottom-5">
+                 {productCount && <div className="absolute right-5  bottom-5">
                     <div className="px-2 py-2 bg-gray-500 bg-opacity-50 rounded-lg">
                         <p className="text-xl font-semibold">
                             {productCount} <span className="mx-2">Products</span>
                         </p>
                     </div>
-                </div> */}
+                </div>}
             </div>
         </div>
     );
