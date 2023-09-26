@@ -1,7 +1,5 @@
 import Link from "next/link"
-import Container from "./ui/container"
-import MainNav from "./mainnav"
-import NavActions from "./nav_actions"
+ 
 import { Category } from "@/types"
 
 
@@ -21,7 +19,7 @@ const SecondaryNav: React.FC<SecondaryNavProps> = ({ title, categories }) => {
                     {title}
                 </Link>
                 <div className="flex flex-col justify-center gap-2 border-l-[1px] pl-2">
-                    {categories ? categories.map((item, index) => { return (<div key={item.id}>{item.name}</div>) }) : ''}
+                    {categories ? categories.map((item ) => { return (<div key={item.id}>{item.name}</div>) }) : ''}
                 </div>
 
 

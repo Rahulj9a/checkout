@@ -8,6 +8,7 @@ interface Query {
     categoryId?: string
     colorId?: string
     sizeId?: string
+    storeId?:string
     isFeatured?: boolean
 }
 
@@ -16,6 +17,7 @@ const getProducts = async (query: Query):Promise<Product[]> =>{
     const url = qs.stringifyUrl({
         url: URL,
         query:{
+            storeId:query.storeId,
             colorId:query.colorId,
             sizeId:query.sizeId,
             categoryId:query.categoryId,
@@ -23,7 +25,7 @@ const getProducts = async (query: Query):Promise<Product[]> =>{
         },
     })
 
-    const res = await fetch(url, { next: { revalidate: 1000 }})
+    const res = await fetch(url, { next: { revalidate: 6000 }});
     return res.json()
 }
 

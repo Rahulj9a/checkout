@@ -6,15 +6,17 @@ export interface Product {
   isFeatured: boolean;
   size: Size;
   color: Color;
-  store:Store
+  store:Store;
+   
   image: Image[]
 };
 
 export interface Store {
   id:string
   name: string
-  category: Category[]
-  billboard: Billboard[]
+  category?: Category[]
+  billboard?: Billboard[]
+  product?:Product[]
 }
 
 export interface Image {
@@ -34,6 +36,7 @@ export interface Category {
   name: string;
   billboard: Billboard;
   store:Store
+  product:Product[]
 };
 
 export interface Size {
