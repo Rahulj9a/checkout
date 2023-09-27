@@ -20,7 +20,7 @@ interface StorePageProps {
 const StorePage: React.FC<StorePageProps> = async ({ params }) => {
     const store = await getStore(params.storeId)
     const categories = await getStoreCategories(params.storeId)
-    const products = await getStoreProducts(params.storeId)
+    const products = await getStoreProducts(params.storeId, {isFeatured:true})
 
     /*   const productCountByCategory = (categoryId: string) => {
           const count = products.reduce((total, product) => total + Number(product.category.id == categoryId), 0)
@@ -35,8 +35,8 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
         <>
             <Navbar routeNav={<RouteNav store={store} />} />
             <div className="pt-16">
-                <SecondaryNav title="Store Categories" categories={categories} />
-                <div className=" pl-48">
+                
+                <div>
                     <div className="px-4">
 
 

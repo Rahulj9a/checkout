@@ -22,11 +22,6 @@ const MainNav = () => {
             active: pathname === "/"
         },
         {
-            label:"Categories",
-            href:'/categories',
-            active: pathname === `/categories`
-        },
-        {
             label:"Stores",
             href:'/stores',
             active: pathname === `/stores`

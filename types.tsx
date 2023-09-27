@@ -7,7 +7,8 @@ export interface Product {
   size: Size;
   color: Color;
   store:Store;
-   
+   storeId:string;
+   categoryId:string;
   image: Image[]
 };
 
@@ -33,6 +34,7 @@ export interface Billboard {
 
 export interface Category {
   id: string;
+  storeId:string,
   name: string;
   billboard: Billboard;
   store:Store

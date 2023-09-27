@@ -1,4 +1,7 @@
+"use client"
+
 import { Category } from "@/types";
+import { useRouter } from "next/navigation";
 
 interface CategoryCardProps {
     data: Category;
@@ -11,8 +14,13 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     board,
     productCount,
 }) => {
+    console.log(data)
+    const router = useRouter()
+    const handleClick = ()=>{
+        router.push(`/stores/${data.storeId}/category/${data.id}`)
+    }
     return (
-        <div className="p-4 sm:p-6 lg:p-8 overflow-hidden rounded-xl">
+        <div className="p-4 sm:p-6 lg:p-8 overflow-hidden rounded-xl cursor-pointer" onClick={handleClick}>
             <div
                 style={{ backgroundImage: `url(${data.billboard.imageUrl})` }}
                 className="rounded-xl aspect-square relative md:aspect-[2.4/1] overflow-hidden bg-cover"
