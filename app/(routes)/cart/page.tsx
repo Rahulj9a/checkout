@@ -1,49 +1,46 @@
-"use client"
+"use client";
 
-import useCart from "@/hooks/useCart"
-import Container from "@/components/ui/container"
-import { useEffect, useState } from "react"
-import CartItem from "./components/cart-item"
-import Summary from "./components/summary"
+import useCart from "@/hooks/useCart";
+import Container from "@/components/ui/container";
+import { useEffect, useState } from "react";
+import CartItem from "./components/cart-item";
+import Summary from "./components/summary";
 
 const Cart = () => {
-    const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
-    const cart = useCart()
-    useEffect(() => {
-        setIsMounted(true)
-    }, [])
-    if (!isMounted) {
-        return null
-    }
-    
-    return (
-        <div className="bg-white">
-            <Container>
-                <div className="px-4 py-16 sm:px-6 lg:px-8">
-                    <h1 className="text-2xl lg:text-3xl text-gray-900 font-bold">
-                        Shopping Cart
-                    </h1>
-                    <div className="  mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
-                        <div className="lg:col-span-7">
-                            { cart.items.length === 0  && <p>There is no item in Cart</p> } 
-                            <ul>
-                                {cart.items.map((item)=>(
-                                    <CartItem key={item.id} data={item}/>
-                                ))}
-                            </ul>
-                                
-                           
+  const cart = useCart();
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  if (!isMounted) {
+    return null;
+  }
 
-                        </div>
-                        <Summary/>
-
-                    </div>
+  return (
+    <div className="bg-white">
+      <Container>
+        <div className="px-4 py-16 sm:px-6 lg:px-8">
+          <h1 className="text-2xl lg:text-3xl text-gray-900 font-bold">
+            Shopping Cart
+          </h1>
+          <div>
+            {cart.items.length === 0 && <p>There is no item in Cart</p>}
+            <ul>
+              {cart.items.map((item) => (
+                <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
+                  <div className="lg:col-span-7">
+                    <CartItem key={item.id} data={item} />
+                  </div>
+                  <Summary item={item}/>
                 </div>
-            </Container>
+              ))}
+            </ul>
+          </div>
         </div>
-    )
+      </Container>
+    </div>
+  );
+};
 
-}
-
-export default Cart
+export default Cart;
