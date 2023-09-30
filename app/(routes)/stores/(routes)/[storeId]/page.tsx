@@ -22,11 +22,7 @@ const StorePage: React.FC<StorePageProps> = async ({ params }) => {
     const categories = await getStoreCategories(params.storeId)
     const products = await getStoreProducts(params.storeId, {isFeatured:true})
 
-    /*   const productCountByCategory = (categoryId: string) => {
-          const count = products.reduce((total, product) => total + Number(product.category.id == categoryId), 0)
-  
-          return count
-      } */
+    
 
 
 

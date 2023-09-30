@@ -14,7 +14,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
     board,
     productCount,
 }) => {
-    console.log(data)
+   
     const router = useRouter()
     const handleClick = ()=>{
         router.push(`/stores/${data.storeId}/category/${data.id}`)
